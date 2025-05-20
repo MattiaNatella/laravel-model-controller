@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <!-- BOOTSTRAP  -->
     @vite(['resources/sass/app.scss', "resources/js/app.js"])
@@ -12,10 +13,22 @@
 <body>
 
     @include('partials.header')
-
     <div class="container">
 
-        <x-card />
+        <div class="row row-cols-4">
+
+            @foreach ($movies as $movie)
+                <div class="col p-1">
+                    <div class="card mb-3">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ $movie['title'] }}</h5>
+                            <p class="card-text">{{ $movie['date']}} {{ $movie['nationality'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 </body>
 
